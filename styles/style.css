@@ -1,0 +1,74 @@
+#logo{
+    width: 10%;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@font-face { 
+    font-family: Alcefun; 
+    src: url('fonts/alcefunrounded.otf'); 
+} 
+
+h1{
+    font-family: Alcefun;
+    color: #1ed301;
+    text-align: center;
+}
+
+/*input, label{
+    display: block;
+}*/
+
+/*#usernameWrap{
+    float: left;
+    margin-right: 20px;
+}
+
+#passwordWrap{
+    float: left;
+}*/
+
+input[type=submit]{
+    width: 210px;
+    background-color: #1ed301;
+    border: none;
+    padding: 8px;
+}
+
+.center{
+    padding: 20px;
+    text-align: center;
+    width: 500px;
+    margin: 100px auto;
+    border-radius: 5px;
+    background-color: white;
+}
+
+input{
+    display: block;
+    width: 200px;
+    margin: 10px auto;
+    padding: 5px;
+}
+
+h3{
+    font-family: Alcefun;
+    font-size: 18px;
+    
+}
+
+header{
+    background-color: white;
+}
+
+a:link{
+    font-family: Alcefun;
+    color: black;
+    
+}
+
+a:hover{
+    color: #1ed301;
+}
