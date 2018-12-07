@@ -1,0 +1,46 @@
+<script>
+
+    function phoneChange() {      
+
+        $.ajax({
+
+            type: "get",
+
+            url: "https://web-production.lime.bike/api/rider/v1/login?phone=" + $("#phone").val(),
+        
+            success: function(data,status) {
+              
+            }
+
+         });
+
+    }
+    
+    function codeChange() {      
+
+        $.ajax({
+
+            type: "POST",
+
+            url: "lime.php",
+            
+            contentType: "application/json",
+            
+            data: JSON.stringify({
+                "login_code": $("#code").val(),
+                "phone": $("#phone").val()
+            }),
+        
+            success: function(data,status) {
+              return(data);
+            },
+            
+            error: function() {
+                console.log("error", arguments);
+            }
+
+         });
+
+    }
+    
+</script>
