@@ -6,13 +6,8 @@
     margin-right: auto;
 }
 
-@font-face { 
-    font-family: Alcefun; 
-    src: url('https://www.freefontspro.com/16173/alcefun.ttf'); 
-} 
-
 h1{
-    font-family: Alcefun;
+font-family: 'Varela Round', sans-serif;
    margin: -5px;
    font-size: .8em;
 }
@@ -35,7 +30,7 @@ nav{
 
 
 a:link{
-    font-family: Alcefun;
+    font-family: 'Varela Round', sans-serif;
     color: #C0C0C0;
     text-decoration: none;
     font-size: 14;

@@ -1,6 +1,5 @@
 <script>
-
-    function phoneChange() {      
+    function getCode() {      
 
         $.ajax({
 
@@ -16,7 +15,7 @@
 
     }
     
-    function codeChange() {      
+    function getData() {      
 
         $.ajax({
 
@@ -32,7 +31,7 @@
             }),
         
             success: function(data,status) {
-              return(data);
+              returnData(data);
             },
             
             error: function() {
@@ -41,6 +40,11 @@
 
          });
 
+    }
+    
+    function returnData(data){
+        //enter SQL to update databse with correct data here. (updates every sign in)
+        console.log(data);
     }
     
 </script>
