@@ -1,0 +1,111 @@
+#logo{
+    width: 10%;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+h1{
+font-family: 'Varela Round', sans-serif;
+   margin: -5px;
+   font-size: .8em;
+}
+
+nav{
+    
+    margin-left:-9px;
+    margin-top: -70px;
+}
+#home{
+    border: none;
+    display: block;
+    margin-left: auto;
+    margin-top: auto;
+    padding: none;
+    text-align: center;
+    text-decoration: none;
+    font-size: 14;
+}
+
+
+a:link{
+    font-family: 'Varela Round', sans-serif;
+    color: #C0C0C0;
+    text-decoration: none;
+    font-size: 14;
+  background-color: #666666;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: rgba(255,255,255,0.5) 0px 3px 3px;
+}
+
+a:visited {
+    color:#C0C0C0 ;
+    
+}
+a:hover{
+    color: #1ed301;
+}
+form{
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    transition: all 1s;
+    width: 50px;
+    height: 50px;
+    background: white;
+    box-sizing: border-box;
+    border-radius: 25px;
+    border: 4px solid white;
+    padding: 5px;
+}
+
+input{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;;
+    height: 42.5px;
+    line-height: 30px;
+    outline: 0;
+    border: 0;
+    display: none;
+    font-size: 1em;
+    border-radius: 20px;
+    padding: 0 20px;
+    color: white;
+}
+
+.fa{
+    box-sizing: border-box;
+    padding: 10px;
+    width: 42.5px;
+    height: 42.5px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-radius: 50%;
+    color:#1ed301 ;
+    text-align: center;
+    font-size: 1.2em;
+    transition: all 1s;
+}
+
+form:hover{
+    width: 200px;
+    cursor: pointer;
+}
+
+form:hover input{
+    display: block;
+    background-color: #C0C0C0;
+}
+
+form:hover .fa{
+    background: #1ed301;
+    color: white;
+}
