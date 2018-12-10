@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Home Page</title>
     <link rel="stylesheet" type="text/css" href="styles/homePageStyle.css">
-    <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
+    
   </head>
   <body>
         <h1><img src="images/scoot.png" id="logo">
