@@ -9,6 +9,7 @@
     <meta charset="UTF-8">
     <title>Home Page</title>
     <link rel="stylesheet" type="text/css" href="styles/homePageStyle.css">
+    
   </head>
   <body>
         <h1><img src="images/scoot.png" id="logo">
