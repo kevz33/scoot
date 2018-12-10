@@ -54,7 +54,7 @@ a:visited {
 a:hover{
     color: #1ed301;
 }
-form{
+#search{
     position: relative;
     top: 50%;
     left: 50%;
@@ -100,17 +100,17 @@ input{
     transition: all 1s;
 }
 
-form:hover{
+#search:hover{
     width: 200px;
     cursor: pointer;
 }
 
-form:hover input{
+#search:hover input{
     display: block;
     background-color: #C0C0C0;
 }
 
-form:hover .fa{
+#search:hover .fa{
     background: #1ed301;
     color: white;
 }
