@@ -72,3 +72,7 @@ a:link{
 a:hover{
     color: #1ed301;
 }
+
+.profilePic {
+    margin-left: 10%;
+}
