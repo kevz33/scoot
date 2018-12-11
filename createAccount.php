@@ -85,9 +85,11 @@
             if( document.getElementById("#error-message").innerHTML == "Username Taken!"){
                 return false;
             }
-            if("#password".val() ==""){
+            if($("#password").val() ==""){
                 return false;
             }
+           
+            //document.getElementById("passConfirm").innerHTML = "Passwords Okay!";
              //console.log("same");
               var jsonData ={
              "username": $("#username").val(),
@@ -114,6 +116,6 @@
             
           }
           
-         
+          
          
 </script>
