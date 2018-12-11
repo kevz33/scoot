@@ -18,7 +18,7 @@ switch($httpMethod) {
     header("Access-Control-Allow-Origin: *");
     
     http_response_code(401);
-    echo "Not Supported";
+    //echo "Not Supported";
     
     break;
   case 'POST':
