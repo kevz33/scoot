@@ -1,18 +1,23 @@
 <?php 
-// include 'database.php';
-// $dbConn = getDatabaseConnection();
-
-// $username = POST['username'];
-
-// function getUsername() {
-//   global $dbConn;
-  
-//     $sql = "SELECT * FROM `users` WHERE username"; 
-//     $statement = $dbConn->prepare($sql); 
-//     $statement->execute();
-
-//     $records = $statement->fetchAll(); 
-// }
+    session_start();
+  include 'database.php';
+  $dbConn = getDatabaseConnection();
+   
+  function getImage() {
+      global $dbConn;
+  $sql = "SELECT * FROM pictures WHERE userID = :userID";
+  $stmt = $dbConn->prepare($sql);
+  $stmt->execute(array(":imageID"=> $_SESSION['user_id']));
+  $stmt->bindColumn('fileData', $data, PDO::PARAM_LOB);
+  $record = $stmt->fetch(PDO::FETCH_BOUND);
+     
+  if (!empty($record)){
+        header('Content-Type:' . $record['fileType']);   //specifies the mime type
+        header('Content-Disposition: inline;');
+        echo $data; 
+    } $records;
+    
+  }
 
 ?>
 
@@ -31,16 +36,15 @@
         
         <img src="images/avatar.png" class="profilePic" alt="Avatar" style="border-radius: 50%; width:10%">
         
-        <h2>User's Name</h2>
-        <h3>@username</h3>
+        <h2><?php echo "@{$_SESSION['username']}" ?></h2>
         
-        <div class="bio">
-          <p>Lifelong writer. Gamer. Bacon lover. Devoted coffeeaholic. Professional alcohol practitioner. Food buff.</p>
-        </div>
+        <!--<div class="bio">-->
+        <!--  <p>Lifelong writer. Gamer. Bacon lover. Devoted coffeeaholic. Professional alcohol practitioner. Food buff.</p>-->
+        <!--</div>-->
         
           <div align="center" class="postedImages">
             
-            <img src="images/lime1.jpg" id="images" onclick="imagePopUp()">
+            <img src="getImage()" id="images">
             <img src="images/lime2.jpg" id="images">
             <img src="images/lime3.jpg" id="images">
             <br>

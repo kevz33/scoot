@@ -17,7 +17,7 @@
               <i class="fa fa-search"></i>
             </form>
         <nav>
-          <a style="margin-right:200px"href="profile.html"> My Profile </a>
+          <a style="margin-right:200px"href="profile.php"> My Profile </a>
         
           <a href="index.html"> Logout </a>
        </nav>
