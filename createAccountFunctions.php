@@ -61,9 +61,11 @@ switch($httpMethod) {
 function createUser($username, $password, $rePassword){
 
     //$dbConn = getDatabaseConnection(); 
-    
         //echo "im here!";
-        $dbConn = getDatabaseConnection();
+        //$userCheck;
+        $dbConn = getDatabaseConnection(); 
+
+        //$dbConn = getDatabaseConnection();
         $sql = "INSERT INTO `users` (`user_id`, `username`, `password`) VALUES ('@NextId', '$username', SHA1('$password'))";
         $statement = $dbConn->prepare($sql); 
         $statement->execute(); 
