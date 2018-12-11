@@ -14,5 +14,3 @@ $dbConn = getDatabaseConnection();
     echo $data; 
   } 
 ?>
-
-
