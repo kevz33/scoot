@@ -1,3 +1,36 @@
+<?php
+  session_start();
+  include 'database.php';
+  $dbConn = getDatabaseConnection();
+ $sql = "SELECT posts.text, posts.dateUpload, users.username
+        FROM `posts`
+        LEFT JOIN `users` on posts.userID = users.user_id;"; 
+  $statement = $dbConn->prepare($sql); 
+  $statement->execute(); 
+  $postRecords = $statement->fetchAll();
+  
+$dbConn = getDatabaseConnection();
+ $sql = "SELECT pictures.description, pictures.uploadDate, pictures.imageID, users.username
+        FROM `pictures`
+        LEFT JOIN `users` on pictures.userID = users.user_id;"; 
+  $statement = $dbConn->prepare($sql); 
+  $statement->execute(); 
+  $photoRecords = $statement->fetchAll();
+  
+  $combinedRecords = array_merge($postRecords, $photoRecords);
+  
+  
+  function date_compare($a, $b)
+{
+    $t1 = strtotime($a[1]);
+    $t2 = strtotime($b[1]);
+    return $t1 - $t2;
+}    
+usort($combinedRecords, 'date_compare');
+$records = array_reverse($combinedRecords);
+
+?>
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -22,5 +55,20 @@
           <a href="index.html"> Logout </a>
        </nav>
         </h1>
+        <br><br>
+        <div id="posts">
+          <?php
+            for($i=0; $i < count($records); $i++){
+              if(isset($records[$i]['text'])){
+                echo "<div class='new_post'>" . $records[$i]['username'] . ":     " . $records[$i]["text"] . "</div>";
+              }
+              else{
+                echo "<div class='new_post'>" . $records[$i]['username'] . ": " . $records[$i]['description'] .  "<img src='downloadFile.php?imageID=" . $records[$i]["imageID"] . "' width='175' height='200'></div>";
+              }
+              echo "<br>";
+              
+            }
+          ?>
+        </div>
   </body>
 </html>
