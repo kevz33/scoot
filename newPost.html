@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Scoot</title>
+        <link rel="stylesheet" type="text/css" href="styles/style.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <header>
+            <div class="top">
+                <img src="images/scoot.png" id="logo">
+            </div>
+            
+        </header>
+        
+        <div class="center">
+            <h3>Create New Post</h3>
+            <form method="POST" class="login">
+                <input type="text" name="post" id ="post" placeholder="Scoot Scoot"></input>
+                <button type="button" id="postBtn">Post</button>
+            </form> 
+            
+        </div>
+       
+
+    </body>
+</html>
+<script>
+$("#postBtn").click(savePost);
+    
+    function savePost() {      
+
+        $.ajax({
+
+            type: "POST",
+
+            url: "savePost.php",
+            
+            contentType: "application/json",
+            
+            data: JSON.stringify({
+                "post": $("#post").val()
+            }),
+        
+            success: function(data,status) {
+              console.log(status);
+            },
+            
+            error: function() {
+                console.log("error", arguments);
+            }
+
+         });
+
+    }
+    
+</script>
