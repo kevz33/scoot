@@ -75,10 +75,10 @@ $records = array_reverse($combinedRecords);
           <?php
             for($i=0; $i < count($records); $i++){
               if(isset($records[$i]['text'])){
-                echo "<div class='new_post'>" . $records[$i]['username'] . ":     " . $records[$i]["text"] . "</div>";
+                echo "<div align='center' class='new_post'>" . $records[$i]['username'] . ":     " . $records[$i]["text"] . "</div>";
               }
               else{
-                echo "<div class='new_post'>" . $records[$i]['username'] . ": " . $records[$i]['description'] .  "<img src='downloadFile.php?imageID=" . $records[$i]["imageID"] . "' width='175' height='200'></div>";
+                echo "<div align='center' class='new_post'>" . $records[$i]['username'] . ": " . $records[$i]['description'] .  "<img src='downloadFile.php?imageID=" . $records[$i]["imageID"] . "' width='175' height='200'></div>";
               }
               echo "<br>";
               
