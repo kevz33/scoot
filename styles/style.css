@@ -67,7 +67,13 @@ a:link{
 a:hover{
     color: #1ed301;
 }
+<<<<<<< HEAD
+
+.profilePic {
+    margin-left: 10%;
+=======
 .error{
     color:red;
     text-align:center;
+>>>>>>> 19deb94315f6b5c8c5cda4806b7d78ef751e05b5
 }

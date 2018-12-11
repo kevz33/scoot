@@ -1,33 +1,6 @@
 <?php
 
-session_start(); 
-include 'database.php'; 
-$dbConn = getDatabaseConnection(); 
-
-function validate($username, $password) {
-    
-    global $dbConn; 
-    $dbConn = getDatabaseConnection(); 
-    
-    $sql = "SELECT * FROM `users` WHERE username=:username AND password=SHA(:password)"; 
-    $statement = $dbConn->prepare($sql); 
-    $statement->execute(array(':username' => $username, ':password' => $password));
-
-    $records = $statement->fetchAll(); 
-    
-    
-    if (count($records) >= 1) {
-        // login successful
-        $_SESSION['user_id'] = $records[0]['user_id']; 
-        $_SESSION['username'] = $records[0]['username']; 
-        header('Location: home.html');
-        
-    }  else {
-        echo "<div class='error'>Username and password are invalid </div>"; 
-    }
-    
-    
-}
+include 'loginFunctions.php'; 
 
 ?>
 
@@ -36,6 +9,7 @@ function validate($username, $password) {
     <head>
         <title>Scoot</title>
         <link rel="stylesheet" type="text/css" href="styles/style.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     </head>
     <body>
         <header>
@@ -45,18 +19,12 @@ function validate($username, $password) {
             
         </header>
         
-        <?php 
-            if (isset($_POST['username'])) {
-                validate($_POST['username'], $_POST['password']);  
-            }
-        ?>
-        
         <div class="center">
             <h3>Let's Scoot!</h3>
             <form method="POST" class="login">
-                <input type="text" name="username" placeholder="Username"></input>
-                <input type="password" name="password" placeholder="Password"></input>
-                <input type="submit" value="Login">
+                <input type="text" name="username" id ="username" placeholder="Username"></input>
+                <input type="password" name="password" id="password" placeholder="Password"></input><span id="Invalid"></span>
+                <button type="button" id="submitBtn" value="Login">Submit</button>
             </form> 
             
             <a href="createAccount.php">Create New Account</a>
@@ -65,3 +33,45 @@ function validate($username, $password) {
 
     </body>
 </html>
+
+<script>
+    $("#submitBtn").click(onButtonClicked);
+    
+    function onButtonClicked() {
+            var jsonData = {
+                "username": $("#username").val(),
+                "password" : $("#password").val()
+            };
+
+            $.ajax({
+                    // The URL for the request
+                    url: "loginFunctions.php",
+
+                    // Whether this is a POST or GET request
+                    type: "POST",
+
+                    // The type of data we expect back
+                    dataType: "json",
+
+                    contentType: "application/json",
+
+                    data: JSON.stringify(jsonData),
+                    
+            })
+                    .done(function(data) {
+                        if(data["data"] == false){
+                            document.getElementById("Invalid").innerHTML = "Invalid Credentials";
+                        }
+                        else{
+                            window.location.replace("home.php");
+                        }
+                        
+                    })
+                    
+                    .always(function(xhr, status) {
+                        console.log("always");
+                    });
+
+            
+        }
+</script>
