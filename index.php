@@ -26,7 +26,7 @@ include 'loginFunctions.php';
                 <input type="password" name="password" id="password" placeholder="Password"></input><span id="Invalid"></span>
                 <button type="button" id="submitBtn" value="Login">Submit</button>
             </form> 
-            
+            <br>
             <a href="createAccount.php">Create New Account</a>
         </div>
        

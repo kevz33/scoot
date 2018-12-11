@@ -31,25 +31,20 @@ nav{
 
 a:link{
     font-family: 'Varela Round', sans-serif;
-    color: #C0C0C0;
+    color: grey;
     text-decoration: none;
     font-size: 14;
-  background-color: #666666;
-    -webkit-background-clip: text;
-    -moz-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    text-shadow: rgba(255,255,255,0.5) 0px 3px 3px;
+ 
 }
 
 a:visited {
-    color:#C0C0C0 ;
+    color:grey ;
     
 }
 a:hover{
     color: #1ed301;
 }
-form{
+#search{
     position: relative;
     top: 50%;
     left: 50%;
@@ -95,17 +90,35 @@ input{
     transition: all 1s;
 }
 
-form:hover{
+#search:hover{
     width: 200px;
     cursor: pointer;
 }
 
-form:hover input{
+#search:hover input{
     display: block;
     background-color: #C0C0C0;
 }
 
-form:hover .fa{
+#search:hover .fa{
     background: #1ed301;
     color: white;
+}
+.misha_loadmore{
+	background-color: #ddd;
+	border-radius: 2px;
+	display: block;
+	text-align: center;
+	font-size: 14px;
+	font-size: 0.875rem;
+	font-weight: 800;
+	letter-spacing:1px;
+	cursor:pointer;
+	text-transform: uppercase;
+	padding: 10px 0;
+	transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, color 0.3s ease-in-out;  
+}
+.misha_loadmore:hover{
+	background-color: #767676;
+	color: #fff;
 }
