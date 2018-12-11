@@ -1,23 +1,45 @@
 <?php 
-    session_start();
+  session_start();
+    
   include 'database.php';
   $dbConn = getDatabaseConnection();
-   
-  function getImage() {
+  print_r($_SESSION);
+  
+  
+  function getImages() {
       global $dbConn;
-  $sql = "SELECT * FROM pictures WHERE userID = :userID";
-  $stmt = $dbConn->prepare($sql);
-  $stmt->execute(array(":imageID"=> $_SESSION['user_id']));
-  $stmt->bindColumn('fileData', $data, PDO::PARAM_LOB);
-  $record = $stmt->fetch(PDO::FETCH_BOUND);
-     
-  if (!empty($record)){
-        header('Content-Type:' . $record['fileType']);   //specifies the mime type
-        header('Content-Disposition: inline;');
-        echo $data; 
-    } $records;
-    
+      
+      $sql = "SELECT * FROM pictures WHERE userID = :userID";
+      $stmt = $dbConn->prepare($sql);
+      $stmt->execute(array(":userID"=> $_SESSION['user_id']));
+    //   $stmt->bindColumn('fileData', $data, PDO::PARAM_LOB);
+    // $statement->execute(); 
+//   $photoRecords = $statement->fetchAll();
+      $records = $stmt->fetchAll();
+      echo $records;
+      
+      echo "<br>";
+      echo "records: <br>";
+        //  print_r($records);
+        
+        
+        
+        
+        
+         
+         for($i=0; $i < count($records); $i++) 
+      {
+          echo "<div class='postedImages'>"  .  "<img src='?imageID=" . $records[$i]["imageID"] . "' ></div>";
+      }
+    //   if (!empty($records)){
+    //         header('Content-Type:' . $record['fileType']);   //specifies the mime type
+    //         header('Content-Disposition: inline;');
+    //         echo $data; 
+    //     } 
+        
   }
+       getImages();
+      
 
 ?>
 
@@ -32,7 +54,7 @@
     <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
   </head>
   <body>
-        <h1><img src="images/scoot.png" id="logo">
+        <h1><img src="images/scoot.png" id="logo" onclick="window.location.href='home.php'">
         
         <img src="images/avatar.png" class="profilePic" alt="Avatar" style="border-radius: 50%; width:10%">
         
@@ -43,8 +65,17 @@
         <!--</div>-->
         
           <div align="center" class="postedImages">
+              
+              <?php
+              for($i=0; $i < count($records); $i++) 
+      {
+        //   echo "<div class='postedImages'>";
+        //   echo "<img src='getImages.php?imageID=" . $records[$i]["imageID"] . "' >";
+        //   echo "</div>";
+      }
+      ?>
             
-            <img src="getImage()" id="images">
+            <img src="images/lime1.jpg" id="images">
             <img src="images/lime2.jpg" id="images">
             <img src="images/lime3.jpg" id="images">
             <br>
