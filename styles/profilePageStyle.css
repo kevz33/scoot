@@ -1,0 +1,50 @@
+#logo{
+    width: 10%;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.profilePic {
+    margin-left: auto;
+    margin-right:auto;
+    display: block;
+    border-radius: 100%;
+    border: 3.5px solid #1ed301;
+}
+
+h2 {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -15px;
+    text-align: center;
+    display: block;
+    font-size: 25px;
+}
+h3 {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -23px;
+    text-align: center;
+    display: block;
+    font-size: 18px;
+    
+}
+
+.bio {
+    width:300px;
+    margin: auto;
+    text-align: center;
+}
+
+.postedImages {
+    align-items: center;
+}
+#images{
+    width: 287px;
+    height:287px;
+    position: relative;
+    margin: 8px 8px;
+}
+
