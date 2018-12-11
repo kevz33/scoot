@@ -51,6 +51,7 @@ input{
 h3{
     font-family: Alcefun;
     font-size: 18px;
+    color: grey;
     
 }
 
@@ -60,7 +61,7 @@ header{
 
 a:link{
     font-family: 'Varela Round', sans-serif;
-    color: black;
+    color: grey;
     
 }
 
@@ -77,3 +78,35 @@ a:hover{
     text-align:center;
 >>>>>>> 19deb94315f6b5c8c5cda4806b7d78ef751e05b5
 }
+.form-submit-button {
+
+background: #B9DFFF;
+
+color: #fff;
+
+border: 1px solid #eee;
+
+border-radius: 20px;
+
+box-shadow: 5px 5px 5px #eee;
+
+text-shadow:none;
+
+}
+
+.form-submit-button:hover {
+
+background: #016ABC;
+
+color: grey;
+
+border: 1px solid #eee;
+
+border-radius: 20px;
+
+box-shadow: 5px 5px 5px #eee;
+
+text-shadow:none;
+
+}
+
