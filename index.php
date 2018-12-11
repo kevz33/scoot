@@ -69,7 +69,7 @@ include 'loginFunctions.php';
                     })
                     
                     .always(function(xhr, status) {
-                        console.log("always");
+                        
                     });
 
             
