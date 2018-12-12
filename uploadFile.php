@@ -1,4 +1,5 @@
 <?php
+session_start();
 function filterUploadedFile() {
   $allowedTypes = array("text/plain","image/png");
   $allowedExtensions = array("txt", "png");
@@ -21,7 +22,7 @@ function filterUploadedFile() {
 
 
 
-if (isset($_POST['uploadForm'])) {
+function uploadPhoto() {
     $filterError = filterUploadedFile();
      if (!empty($filterError)) {
         if ($_FILES["fileName"]["error"] > 0) {
@@ -43,10 +44,38 @@ if (isset($_POST['uploadForm'])) {
     }
     }
 } //endIf form submission
+
+function uploadProfilePhoto(){
+    $filterError = filterUploadedFile();
+     if (!empty($filterError)) {
+        if ($_FILES["fileName"]["error"] > 0) {
+            echo "Error: " . $_FILES["fileName"]["error"] . "<br>";
+        }
+    else {
+      echo "Upload: " . $_FILES["fileName"]["name"] . "<br>";
+      echo "Type: " . $_FILES["fileName"]["type"] . "<br>";
+      echo "Size: " . ($_FILES["fileName"]["size"] / 1024) . " KB<br>";
+      echo "Stored in: " . $_FILES["fileName"]["tmp_name"];
+      include 'database.php';
+      $dbConn = getDatabaseConnection();
+      $binaryData = file_get_contents($_FILES["fileName"]["tmp_name"]);
+      $sql = "INSERT INTO profile_pictures (imageID, userID, fileName, fileSize, fileType, fileData) " . "  VALUES (NULL, :userID, :fileName, :fileSize, :fileType, :fileData) ";
+      $stm=$dbConn->prepare($sql);
+      $stm->execute(array (":userID"=>$_SESSION['user_id'], ":fileName"=>$_FILES["fileName"]["name"], ":fileSize"=>filesize($_FILES["fileName"]["tmp_name"]), ":fileType"=>$_FILES["fileName"]["type"], ":fileData"=>$binaryData));
+      echo "<br />File saved into database <br /><br />";
+
+    }
+    }
+}
+
+if (isset($_POST['uploadForm'])) {
+    uploadPhoto();
+}
 ?>
 
 <form method="POST" enctype="multipart/form-data"> 
     Select file: <input type="file" name="fileName" /> <br />
-    Description: <input type="text" name="description"/> <br />
+    Description: <input type="text" name="description"/>
     <input type="submit"  name="uploadForm" value="Upload File" /> 
+    
 </form>

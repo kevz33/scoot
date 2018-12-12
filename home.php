@@ -48,6 +48,7 @@ if (  $wp_query->max_num_pages > 1 )
     <meta charset="UTF-8">
     <title>Home Page</title>
     <link rel="stylesheet" type="text/css" href="styles/homePageStyle.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     </head>
   <body>
         <h1><img src="images/scoot.png" id="logo">
@@ -69,7 +70,7 @@ if (  $wp_query->max_num_pages > 1 )
        <br>
        <br>
       
-           
+       <button id="postImageBtn">Post Image</button>
        </div>
       
         </h1>
@@ -90,4 +91,12 @@ if (  $wp_query->max_num_pages > 1 )
         </div>
   </body>
 </html>
+
+<script>
+  $("#postImageBtn").click(postImageBtnClicked);
+  
+  function postImageBtnClicked() {
+    window.location.replace("uploadFile.php");
+  }
+</script>
 
