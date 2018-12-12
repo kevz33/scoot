@@ -16,11 +16,15 @@
     // $statement->execute(); 
 //   $photoRecords = $statement->fetchAll();
       $records = $stmt->fetchAll();
-      echo $records;
+      foreach($records as $record) {
+          echo "<br>";
+      echo "records:";
+      return $record;
+      }
       
-      echo "<br>";
-      echo "records: <br>";
-        //  print_r($records);
+    //   echo "<br>";
+    //   echo "records: <br>";
+    //      print_r($records);
         
         
         
@@ -38,7 +42,7 @@
     //     } 
         
   }
-       getImages();
+    //   getImages();
       
 
 ?>
@@ -54,7 +58,7 @@
     <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
   </head>
   <body>
-        <h1><img src="images/scoot.png" id="logo" onclick="window.location.href='home.php'">
+        <h1><img src="images/scoot.png" id="logo" onclick="window.location.href='home.php'" style="cursor:pointer">
         
         <img src="images/avatar.png" class="profilePic" alt="Avatar" style="border-radius: 50%; width:10%">
         
@@ -67,12 +71,12 @@
           <div align="center" class="postedImages">
               
               <?php
-              for($i=0; $i < count($records); $i++) 
-      {
-        //   echo "<div class='postedImages'>";
-        //   echo "<img src='getImages.php?imageID=" . $records[$i]["imageID"] . "' >";
-        //   echo "</div>";
-      }
+              
+      
+          echo "<div class='postedImages'>";
+          echo "<img src='getImages() ". $records['imageID'] . "'>";
+          echo "</div>";
+     
       ?>
             
             <img src="images/lime1.jpg" id="images">
