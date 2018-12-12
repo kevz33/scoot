@@ -1,4 +1,5 @@
 <?php
+session_start();
 function filterUploadedFile() {
   $allowedTypes = array("text/plain","image/png");
   $allowedExtensions = array("txt", "png");
@@ -68,11 +69,13 @@ function uploadProfilePhoto(){
 }
 
 if (isset($_POST['uploadForm'])) {
-    uploadProfilePhoto();
+    uploadPhoto();
 }
 ?>
 
 <form method="POST" enctype="multipart/form-data"> 
     Select file: <input type="file" name="fileName" /> <br />
+    Description: <input type="text" name="description"/>
     <input type="submit"  name="uploadForm" value="Upload File" /> 
+    
 </form>

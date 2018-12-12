@@ -45,6 +45,7 @@ $records = array_reverse($combinedRecords);
     <meta charset="UTF-8">
     <title>Home Page</title>
     <link rel="stylesheet" type="text/css" href="styles/homePageStyle.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     </head>
   <body>
         <h1><img src="images/scoot.png" id="logo">
@@ -66,7 +67,7 @@ $records = array_reverse($combinedRecords);
        <br>
        <br>
       
-           
+       <button id="postImageBtn">Post Image</button>
        </div>
       
         </h1>
@@ -87,4 +88,12 @@ $records = array_reverse($combinedRecords);
         </div>
   </body>
 </html>
+
+<script>
+  $("#postImageBtn").click(postImageBtnClicked);
+  
+  function postImageBtnClicked() {
+    window.location.replace("uploadFile.php");
+  }
+</script>
 
