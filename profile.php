@@ -41,7 +41,6 @@
       echo "<img src='downloadProfilePicture.php?imageID=" . $records[0]["imageID"] . "' class='profilePic' alt='Avatar' style='border-radius: 50%; width:10%'>";
   }
       
-
 ?>
 
 <!DOCTYPE html>
