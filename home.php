@@ -1,13 +1,8 @@
 <?php
     
-    
-global $wp_query; // you can remove this line if everything works for you
- 
-// don't display the button if there are not enough posts
-if (  $wp_query->max_num_pages > 1 )
-	echo '<div class="misha_loadmore">More posts</div>'; // you can use <a> as well
-
   session_start();
+  //include 'functions.php';
+  //include 'viewprofile.php';
   include 'database.php';
   $dbConn = getDatabaseConnection();
  $sql = "SELECT posts.text, posts.dateUpload, users.username
@@ -37,8 +32,16 @@ $dbConn = getDatabaseConnection();
 usort($combinedRecords, 'date_compare');
 $records = array_reverse($combinedRecords);
 
-?>
 
+
+
+
+global $wp_query; // you can remove this line if everything works for you
+ 
+// don't display the button if there are not enough posts
+if (  $wp_query->max_num_pages > 1 )
+	echo '<div class="misha_loadmore">More posts</div>';
+?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -52,8 +55,8 @@ $records = array_reverse($combinedRecords);
         <div id="home">
           <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
-            <form id="search" action="">
-              <input type="search">
+            <form id="search" action="viewprofile.php">
+              <input type="search" placeholder="Search for User">
               <i class="fa fa-search"></i>
             </form>
         <nav>
@@ -78,7 +81,7 @@ $records = array_reverse($combinedRecords);
                 echo "<div align='center' class='new_post'>" . $records[$i]['username'] . ":     " . $records[$i]["text"] . "</div>";
               }
               else{
-                echo "<div align='center' class='new_post'>" . $records[$i]['username'] . ": " . $records[$i]['description'] .  "<img src='downloadFile.php?imageID=" . $records[$i]["imageID"] . "' width='175' height='200'></div>";
+                echo "<div align='center' class='new_post'>" . $records[$i]['username'] . ": " . $records[$i]['description'] .  "<img src='downloadFile.php?imageID=" . $records[$i]["imageID"] . "' width='287' height='287'></div>";
               }
               echo "<br>";
               
