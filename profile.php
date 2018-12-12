@@ -3,7 +3,6 @@
     
   include 'database.php';
   $dbConn = getDatabaseConnection();
-  print_r($_SESSION);
   
   
   function getImages() {
@@ -16,24 +15,10 @@
     // $statement->execute(); 
 //   $photoRecords = $statement->fetchAll();
       $records = $stmt->fetchAll();
-      foreach($records as $record) {
-          echo "<br>";
-      echo "records:";
-      return $record;
-      }
-      
-    //   echo "<br>";
-    //   echo "records: <br>";
-    //      print_r($records);
         
-        
-        
-        
-        
-         
          for($i=0; $i < count($records); $i++) 
       {
-          echo "<div class='postedImages'>"  .  "<img src='?imageID=" . $records[$i]["imageID"] . "' ></div>";
+          echo "<div class='postedImages'>"  .  "<img src='downloadFile.php?imageID=" . $records[$i]["imageID"] . "' id='images'></div>";
       }
     //   if (!empty($records)){
     //         header('Content-Type:' . $record['fileType']);   //specifies the mime type
@@ -42,9 +27,20 @@
     //     } 
         
   }
-    //   getImages();
+  
+  function getProfilePicture() {
+    global $dbConn;
       
-
+      $sql = "SELECT * FROM profile_pictures WHERE userID = :userID";
+      $stmt = $dbConn->prepare($sql);
+      $stmt->execute(array(":userID"=> $_SESSION['user_id']));
+    //   $stmt->bindColumn('fileData', $data, PDO::PARAM_LOB);
+    // $statement->execute(); 
+//   $photoRecords = $statement->fetchAll();
+      $records = $stmt->fetchAll();
+      echo "<img src='downloadProfilePicture.php?imageID=" . $records[0]["imageID"] . "' class='profilePic' alt='Avatar' style='border-radius: 50%; width:10%'>";
+  }
+      
 ?>
 
 <!DOCTYPE html>
@@ -58,10 +54,11 @@
     <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
   </head>
   <body>
-        <h1><img src="images/scoot.png" id="logo" onclick="window.location.href='home.php'" style="cursor:pointer">
+        <h1><img src="images/scoot.png" id="logo" onclick="window.location.href='home.php'">
         
-        <img src="images/avatar.png" class="profilePic" alt="Avatar" style="border-radius: 50%; width:10%">
-        
+        <?php
+          getProfilePicture();
+        ?>
         <h2><?php echo "@{$_SESSION['username']}" ?></h2>
         
         <!--<div class="bio">-->
@@ -71,12 +68,7 @@
           <div align="center" class="postedImages">
               
               <?php
-              
-      
-          echo "<div class='postedImages'>";
-          echo "<img src='getImages() ". $records['imageID'] . "'>";
-          echo "</div>";
-     
+              getImages();
       ?>
             
             <img src="images/lime1.jpg" id="images">
