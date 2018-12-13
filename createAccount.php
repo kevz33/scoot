@@ -29,7 +29,7 @@
                 <span id="passConfirm"></span>
                 <button type="button" name="create" value="Sign Up" id="signUpButton">Submit</button>
             </form> 
-            
+            <br>
              <a href="index.php">Login</a>
         </div>
        

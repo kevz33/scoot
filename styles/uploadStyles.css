@@ -74,24 +74,6 @@ a:hover{
     background: #1ed301;
     color: white;
 }
-.misha_loadmore{
-	background-color: #ddd;
-	border-radius: 2px;
-	display: block;
-	text-align: center;
-	font-size: 14px;
-	font-size: 0.875rem;
-	font-weight: 800;
-	letter-spacing:1px;
-	cursor:pointer;
-	text-transform: uppercase;
-	padding: 10px 0;
-	transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, color 0.3s ease-in-out;  
-}
-.misha_loadmore:hover{
-	background-color: #767676;
-	color: #fff;
-}
 
 #wrapper {
     overflow: hidden; /* add this to contain floated children */
@@ -110,5 +92,23 @@ a:hover{
 
 h2{
        text-align: center;
+       color: #1ed301;
 }
-
+h3{
+    color:grey;
+}
+input[type=submit]:active{
+    background-color: #1ed301;
+    color:white;
+    
+}
+input[type=submit]{
+     background-color: #1ed301;
+  color: white;
+  border: 3px solid white;
+  border-radius: 12px;
+}
+input[type=submit]:hover{
+     background-color:grey;
+    color:#1ed301;
+}

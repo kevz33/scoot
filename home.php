@@ -79,12 +79,12 @@ if (  $wp_query->max_num_pages > 1 )
           <?php
             for($i=0; $i < count($records); $i++){
               if(isset($records[$i]['text'])){
-                echo "<div align='center''border:.5px' class='new_post'>" . $records[$i]['username'] . ":     " . $records[$i]["text"] . "</div>";
+                echo "<div align='center' class='new_post'>" . $records[$i]['username'] . ":     " . $records[$i]["text"] . "</div>";
               }
               else{
                 //echo "<div align='center' class='new_post'>";
                 //echo "@" . $records[$i]['username']  . "<br>" . "<img src='downloadFile.php?imageID=". $records[$i]['imageID']  . "' width='287' height='287'>"  ."<br>" . $records[$i]['description'] . "</div>";
-                echo "<div align='center'text-align:'left' class='new_post'>"."@" . $records[$i]['username']  . "<br>" . "<img src='downloadFile.php?imageID=". $records[$i]['imageID']  . "' width='287' height='287'>"  ."<br>" . $records[$i]['description'] . "</div>";
+                echo "<div align='center' class='new_post'>"."@" . $records[$i]['username']  . "<br>" . "<img src='downloadFile.php?imageID=". $records[$i]['imageID']  . "' width='287' height='287'>"  ."<br>" . $records[$i]['description'] . "</div>";
               }
               echo "<br>";
               
