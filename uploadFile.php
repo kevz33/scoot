@@ -112,19 +112,22 @@ if(isset($_POST['uploadText'])){
         <div id = "imageForm">
             <h2>Post an Image</h2>
             <form method="POST" enctype="multipart/form-data"> 
-                Select file: <input type="file" name="fileName" /> <br />
-                Description: <input type="text" name="description"/>
+            
+                <input type="file" name="fileName" /> <br />
                 <br>
+                
+                <textarea rows="4" cols="50" type="text" name="description" placeholder="Insert Caption"></textarea>
+                <br><br>
                 <input type="submit"  name="uploadPhoto" class="notWhite" value="Post" /> 
             </form>
         </div>
 
         <div id = "textForm">
             <h2>Text Post</h2>
+            <br><br>
             <form method="POST"> 
-                How was your Scoot?
-                <br><br>
-                <input type="text" name="text" />
+                
+                <textarea rows="4" cols="50" type="text" name="text" placeholder="How was your Scoot?"></textarea>
                 <br><br>
                 <input type="submit"  name="uploadText" value="Post" class="notWhite" /> 
             </form>
