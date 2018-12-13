@@ -56,8 +56,8 @@ if (  $wp_query->max_num_pages > 1 )
         <div id="home">
           <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
-            <form id="search" action="viewprofile.php">
-              <input type="search" placeholder="Search for User">
+            <form id="search">
+              <input type="search" id="searched" placeholder="Search posts">
               <i class="fa fa-search"></i>
             </form>
         <nav>
@@ -87,7 +87,6 @@ if (  $wp_query->max_num_pages > 1 )
           echo "</div>";
         }
       ?>
-       
       
         </h1>
         <br><br>
@@ -115,6 +114,69 @@ if (  $wp_query->max_num_pages > 1 )
   
   function postImageBtnClicked() {
     window.location.replace("uploadFile.php");
+  }
+  
+  $("#search").submit(searchOnSubmit);
+  
+  function searchOnSubmit(e){
+    e.preventDefault();
+    if($("#filter").val() != null){
+      var jsonData = {
+                "searched": $("#searched").val(),
+                "filter": $("#filter").val()
+            };
+    }
+    
+    else{
+      var jsonData = {
+        "searched" : $("#searched").val(),
+        "filter": "None"
+      }
+    }
+    
+
+            $.ajax({
+                    // The URL for the request
+                    url: "searchFunctions.php",
+
+                    // Whether this is a POST or GET request
+                    type: "POST",
+
+                    // The type of data we expect back
+                    dataType: "json",
+
+                    contentType: "application/json",
+
+                    data: JSON.stringify(jsonData),
+                    
+            })
+                    .done(function(data) {
+                      $("#posts").empty();
+                      if($("#filter").val() == null){
+                        $("#posts").append("<select id='filter' style='display: block; margin: 0 auto; width:200px;  position: relative; font-family: Arial;'><option value='username'>User</option><option value='text'>Text Posts</option><option value='image'>Images</option></select><br>");
+                      }
+                        if(data["data"] == false){
+                            $("#posts").append($("#searched") + " not found");
+                        }
+                        else{
+                            for(var i = 0; i < data["data"].length; i++){
+                              if(data["data"][i]['text'] != null){
+                                $("#posts").append("<div align='center''border:.5px' class='new_post'><a href='viewProfile.php#" + data["data"][i]['username'] +  "' style='cursor: 'pointer;'>@" + data["data"][i]['username'] + "</a>:     " + data["data"][i]["text"] + "</div>");
+                              }
+                              else{
+                                $("#posts").append("<div align='center'text-align:'left' class='new_post'><a href='viewProfile.php#" + data["data"][i]['username'] +  "' style='cursor: 'pointer;'>@" + data["data"][i]['username'] + "</a><br><img src='downloadFile.php?imageID=" + data["data"][i]['imageID']  + "' width='287' height='287'>"  + "<br>" + data["data"][i]['description'] + "</div>");
+                                
+                              }
+                            $("#posts").append("<br>");
+              
+                            }
+                        }
+                        
+                    })
+                    
+                    .always(function(data, status) {
+                        console.log(data);
+                    });
   }
 </script>
 
