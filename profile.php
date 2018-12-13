@@ -52,18 +52,21 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Profile Page</title>
+    <title><?php echo "@{$_SESSION['username']}" ?> | Scoot</title>
     <link rel="stylesheet" type="text/css" href="styles/profilePageStyle.css">
-    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
-    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
-    <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+    <link rel="apple-touch-icon" sizes="180x180" href="icon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="icon/android-icon-192x192.png">
+    <link rel="manifest" href="icon/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="icon/ms-icon-310x310.png">
+    <meta name="theme-color" content="#ffffff">
   </head>
+  
   <body>
-        <h1><img src="images/scoot.png" id="logo" onclick="window.location.href='home.php'" style="cursor:pointer"><h1>
+        <h1><img src="images/scoot.png" id="logo" onclick="window.location.href='home.php'" style="cursor:pointer">
         
         <div id="nav_div">
             <nav>
-              <!--<a style="margin-right:200px"href="home.php"> Home </a>-->
               <a style="margin-right:200px"href="home.php"> Home </a>            
               <a href="logout.php"> Logout </a>
            </nav>
@@ -72,6 +75,7 @@
         <?php
           getProfilePicture();
         ?>
+        
         <h2><?php echo "@{$_SESSION['username']}" ?></h2>
         
           <div align="center" class="postedImages">
