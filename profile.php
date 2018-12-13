@@ -59,12 +59,12 @@
     <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
   </head>
   <body>
-        <h1><img src="images/scoot.png" id="logo" onclick="window.location.href='home.php'" style="cursor:pointer">
+        <h1><img src="images/scoot.png" id="logo" onclick="window.location.href='home.php'" style="cursor:pointer"><h1>
         
         <div id="nav_div">
             <nav>
-              <a style="margin-right:200px"href="home.php"> Home </a>
-            
+              <!--<a style="margin-right:200px"href="home.php"> Home </a>-->
+              <a style="margin-right:200px"href="home.php"> Home </a>            
               <a href="logout.php"> Logout </a>
            </nav>
        </div>
