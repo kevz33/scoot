@@ -73,6 +73,7 @@ function getData($username, $password) {
     if(count($records) >= 1){
         $_SESSION['user_id'] = $records[0]['user_id'];
         $_SESSION['username'] = $records[0]['username'];
+        $_SESSION['loggedIn'] = "Yes";
         return $records;
     }
     else{

@@ -46,13 +46,12 @@ function uploadPhoto() {
       echo "Upload: " . $_FILES["fileName"]["name"] . "<br>";
       echo "Type: " . $_FILES["fileName"]["type"] . "<br>";
       echo "Size: " . ($_FILES["fileName"]["size"] / 1024) . " KB<br>";
-      include 'database.php';
       $dbConn = getDatabaseConnection();
       $binaryData = file_get_contents($_FILES["fileName"]["tmp_name"]);
       $sql = "INSERT INTO pictures (imageID, userID, fileName, fileSize, fileType, fileData, uploadDate, description ) " . "  VALUES (NULL, :userID, :fileName, :fileSize, :fileType, :fileData, NOW(), :description) ";
       $stm=$dbConn->prepare($sql);
       $stm->execute(array (":userID"=>$_SESSION['user_id'], ":fileName"=>$_FILES["fileName"]["name"], ":fileSize"=>filesize($_FILES["fileName"]["tmp_name"]), ":fileType"=>$_FILES["fileName"]["type"], ":fileData"=>$binaryData, ":description"=>$_POST['description']));
-      echo "<br />File saved into database <br /><br />";
+      echo "Success";
 
     }
     }
