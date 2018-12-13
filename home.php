@@ -67,7 +67,7 @@ $records = array_reverse($combinedRecords);
        <br>
        <br>
       
-       <button id="postImageBtn">Post Image</button>
+       <img src="images/postlogo.png" id="uploadBtn" style="cursor: pointer; width: 32px; height: 32px;" onclick="window.location.href='uploadFile.php'">
        </div>
       
         </h1>

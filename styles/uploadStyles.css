@@ -44,36 +44,6 @@ a:visited {
 a:hover{
     color: #1ed301;
 }
-#search{
-    position: relative;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    transition: all 1s;
-    width: 50px;
-    height: 50px;
-    background: white;
-    box-sizing: border-box;
-    border-radius: 25px;
-    border: 4px solid white;
-    padding: 5px;
-}
-
-input{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;;
-    height: 42.5px;
-    line-height: 30px;
-    outline: 0;
-    border: 0;
-    display: none;
-    font-size: 1em;
-    border-radius: 20px;
-    padding: 0 20px;
-    color: white;
-}
 
 .fa{
     box-sizing: border-box;
@@ -121,5 +91,24 @@ input{
 .misha_loadmore:hover{
 	background-color: #767676;
 	color: #fff;
+}
+
+#wrapper {
+    overflow: hidden; /* add this to contain floated children */
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+}
+#imageForm {
+    width: 300px;
+    float:left; /* add this */
+}
+#textForm {
+    float: right;
+    overflow: hidden;/* add this */
+}
+
+h2{
+       text-align: center;
 }
 
