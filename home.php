@@ -61,17 +61,33 @@ if (  $wp_query->max_num_pages > 1 )
               <i class="fa fa-search"></i>
             </form>
         <nav>
-          <a style="margin-right:200px"href="profile.php"> My Profile </a>
+          <?php
+            if($_SESSION['loggedIn'] == "Yes"){
+              echo "<a style='margin-right:200px'href='profile.php'> My Profile </a>";
         
-          <a href="logout.php"> Logout </a>
+              echo "<a href='logout.php'> Logout </a>";
+            }
+            
+            else{
+              echo "<a style='margin-right:200px'href='index.php'> Login </a>";
+        
+              echo "<a style='margin-left:200px' href='createAccount.php'> Create New Account </a>";
+            }
+          ?>
+          
        </nav>
 
        <br>
        <br>
        <br>
       
-       <img src="images/postlogo.png" id="uploadBtn" style="cursor: pointer; width: 32px; height: 32px;" onclick="window.location.href='uploadFile.php'">
-       </div>
+      <?php
+        if($_SESSION['loggedIn'] == "Yes"){
+          echo "<img src='images/postlogo.png' id='uploadBtn' style='cursor: pointer; width: 32px; height: 32px;' onclick='window.location.href=\"uploadFile.php\"'>";
+          echo "</div>";
+        }
+      ?>
+       
       
         </h1>
         <br><br>

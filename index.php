@@ -1,6 +1,11 @@
 <?php
-
+session_start();
 include 'loginFunctions.php'; 
+
+if(isset($_POST['guestBtn'])){
+    $_SESSION['loggedIn'] = "No";
+    header('Location: home.php');
+}
 
 ?>
 
@@ -28,6 +33,10 @@ include 'loginFunctions.php';
             </form> 
             <br>
             <a href="createAccount.php">Create New Account</a>
+            <br>
+            <form method="POST" class = "login">
+                <input type="submit" name="guestBtn" value="Continue as Guest">
+            </form>
         </div>
        
 
