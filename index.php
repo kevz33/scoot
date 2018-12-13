@@ -63,7 +63,7 @@ include 'loginFunctions.php';
                             document.getElementById("Invalid").innerHTML = "Invalid Credentials";
                         }
                         else{
-                            window.location.replace("home.php");
+                            window.location.replace("functions.html");
                         }
                         
                     })

@@ -44,7 +44,97 @@
     
     function returnData(data){
         //enter SQL to update databse with correct data here. (updates every sign in)
-        console.log(data);
+        var jsonData = {
+                "referralCode": data["data"]["user"]["attributes"]["referral_code"],
+                "rides" : data["data"]["user"]["attributes"]["num_trips"]
+                };
+                $.ajax({
+                    // The URL for the request
+                    url: "limeSql.php",
+
+                    // Whether this is a POST or GET request
+                    type: "POST",
+
+                    // The type of data we expect back
+                    dataType: "json",
+
+                    contentType: "application/json",
+
+                    data: JSON.stringify(jsonData),
+                    
+            })
+                    .done(function(data, status) {
+                        if(data["data"] == true){
+                            window.location.replace("home.php");
+                            
+                        }
+                        else{
+                            console.log(data);
+                        }
+                        
+                    })
+                    
+                    .always(function(data, status) {
+                        console.log(data);
+                    });
     }
     
+</script>
+
+<?php
+
+include 'loginFunctions.php'; 
+
+?>
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Scoot</title>
+        <link rel="stylesheet" type="text/css" href="styles/style.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <header>
+            <div class="top">
+                <img src="images/scoot.png" id="logo">
+            </div>
+            
+        </header>
+        
+        <div class="center">
+            <h3>Let's Scoot!</h3>
+            <form method="POST" class="login">
+                <input type="text" name="phone" id ="phone" placeholder="Phone Number"></input>
+                <div id = "change">
+                <button type="button" id="submitBtn" value= "phoneBtn">Next</button>
+                </div>
+                <div id="addButton">
+                    
+                </div>
+            </form> 
+            <br>
+        </div>
+       
+
+    </body>
+</html>
+
+<script>
+    $("#submitBtn").click(onButtonClicked);
+    $("#addButton").click(onButtonClicked);
+    
+    function onButtonClicked() {
+            if($("#submitBtn").val() == "phoneBtn"){
+                getCode();
+                $("#change").empty();
+                $("#change").html("<input type='text' name='code' id ='code' placeholder='Code'></input>");
+                $("#addButton").html("<button type='button' id='submitBtn' value= 'codeBtn'>Submit</button>");
+            }
+            else{
+                getData();
+            }
+
+            
+        }
 </script>

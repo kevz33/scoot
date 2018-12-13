@@ -10,6 +10,7 @@
 .profilePic {
     margin-left: auto;
     margin-right:auto;
+    margin-top: 25px;
     display: block;
     border-radius: 100%;
     border: 3.5px solid #1ed301;
@@ -49,3 +50,35 @@ h3 {
     margin: 8px 8px;
 }
 
+nav{
+    
+    margin-left:-9px;
+    margin-top: -40px;
+}
+
+a:link{
+    font-family: 'Varela Round', sans-serif;
+    color: grey;
+    text-decoration: none;
+    font-size: 14px;
+ 
+}
+
+a:visited {
+    color:grey ;
+    
+}
+a:hover{
+    color: #1ed301;
+    
+}
+#nav_div{
+    border: none;
+    display: block;
+    margin-left: auto;
+    margin-top: auto;
+    padding: none;
+    text-align: center;
+    text-decoration: none;
+    font-size: 14;
+}
