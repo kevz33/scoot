@@ -70,7 +70,7 @@ if (  $wp_query->max_num_pages > 1 )
        <br>
        <br>
       
-       <button id="postImageBtn">Post Image</button>
+       <img src="images/postlogo.png" id="uploadBtn" style="cursor: pointer; width: 32px; height: 32px;" onclick="window.location.href='uploadFile.php'">
        </div>
       
         </h1>
