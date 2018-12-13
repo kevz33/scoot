@@ -1,5 +1,6 @@
 <?php
 session_start();
+include 'database.php';
 function filterUploadedFile() {
   $allowedTypes = array("text/plain","image/png");
   $allowedExtensions = array("txt", "png");
@@ -20,6 +21,19 @@ function filterUploadedFile() {
     return $filterError;
 }
 
+function savePostToDatabase() {
+    $dbConn = getDatabaseConnection();
+    $sql = "INSERT INTO `posts` 
+      (`postID`, `userID`, `text`, `dateUpload`) 
+      VALUES 
+      (NULL, :userID , :text, NOW());"; 
+ 
+    $statement = $dbConn->prepare($sql); 
+    $statement->execute(array(":userID"=>$_SESSION['user_id'], ":text"=>$_POST['text'])); 
+    echo "<h2>Success</h2>";
+    
+}
+
 
 
 function uploadPhoto() {
@@ -32,7 +46,6 @@ function uploadPhoto() {
       echo "Upload: " . $_FILES["fileName"]["name"] . "<br>";
       echo "Type: " . $_FILES["fileName"]["type"] . "<br>";
       echo "Size: " . ($_FILES["fileName"]["size"] / 1024) . " KB<br>";
-      echo "Stored in: " . $_FILES["fileName"]["tmp_name"];
       include 'database.php';
       $dbConn = getDatabaseConnection();
       $binaryData = file_get_contents($_FILES["fileName"]["tmp_name"]);
@@ -52,30 +65,72 @@ function uploadProfilePhoto(){
             echo "Error: " . $_FILES["fileName"]["error"] . "<br>";
         }
     else {
-      echo "Upload: " . $_FILES["fileName"]["name"] . "<br>";
-      echo "Type: " . $_FILES["fileName"]["type"] . "<br>";
-      echo "Size: " . ($_FILES["fileName"]["size"] / 1024) . " KB<br>";
-      echo "Stored in: " . $_FILES["fileName"]["tmp_name"];
-      include 'database.php';
       $dbConn = getDatabaseConnection();
       $binaryData = file_get_contents($_FILES["fileName"]["tmp_name"]);
       $sql = "INSERT INTO profile_pictures (imageID, userID, fileName, fileSize, fileType, fileData) " . "  VALUES (NULL, :userID, :fileName, :fileSize, :fileType, :fileData) ";
       $stm=$dbConn->prepare($sql);
       $stm->execute(array (":userID"=>$_SESSION['user_id'], ":fileName"=>$_FILES["fileName"]["name"], ":fileSize"=>filesize($_FILES["fileName"]["tmp_name"]), ":fileType"=>$_FILES["fileName"]["type"], ":fileData"=>$binaryData));
-      echo "<br />File saved into database <br /><br />";
+      echo "Success";
 
     }
     }
 }
 
-if (isset($_POST['uploadForm'])) {
+if (isset($_POST['uploadPhoto'])) {
     uploadPhoto();
 }
-?>
 
-<form method="POST" enctype="multipart/form-data"> 
-    Select file: <input type="file" name="fileName" /> <br />
-    Description: <input type="text" name="description"/>
-    <input type="submit"  name="uploadForm" value="Upload File" /> 
-    
-</form>
+if(isset($_POST['uploadText'])){
+    savePostToDatabase();
+}
+?>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Home Page</title>
+    <link rel="stylesheet" type="text/css" href="styles/uploadStyles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    </head>
+  <body>
+        <h1><img src="images/scoot.png" id="logo" style="cursor: pointer;" onclick="window.location.href='home.php'">
+         <br><br><br>
+        <div id="home">
+        <nav>
+          <a style="margin-right:200px"href="profile.php"> My Profile </a>
+        
+          <a href="logout.php"> Logout </a>
+       </nav>
+
+       <br>
+       <br>
+       <br>
+       </div>
+      
+        </h1>
+        <br>
+        <div id = "wrapper">
+        <div id = "imageForm">
+            <h2>Post an Image</h2>
+            <form method="POST" enctype="multipart/form-data"> 
+                Select file: <input type="file" name="fileName" /> <br />
+                Description: <input type="text" name="description"/>
+                <br>
+                <input type="submit"  name="uploadPhoto" class="notWhite" value="Post" /> 
+            </form>
+        </div>
+
+        <div id = "textForm">
+            <h2>Text Post</h2>
+            <form method="POST"> 
+                How was your Scoot?
+                <br><br>
+                <input type="text" name="text" />
+                <br><br>
+                <input type="submit"  name="uploadText" value="Post" class="notWhite" /> 
+            </form>
+        </div>
+        </div>
+  </body>
+</html>
+
