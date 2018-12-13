@@ -74,12 +74,7 @@
     <meta charset="UTF-8">
     <title><?php echo "@" . $_COOKIE['theirUsername']; ?> | Scoot</title>
     <link rel="stylesheet" type="text/css" href="styles/profilePageStyle.css">
-    <link rel="apple-touch-icon" sizes="180x180" href="icon/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192"  href="icon/android-icon-192x192.png">
-    <link rel="manifest" href="icon/manifest.json">
-    <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="icon/ms-icon-310x310.png">
-    <meta name="theme-color" content="#ffffff">
+    <link rel="icon" type="image/png" sizes="96x96" href="icon/favicon-96x96.png">
   </head>
   
   <body>
