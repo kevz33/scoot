@@ -48,10 +48,12 @@ if (  $wp_query->max_num_pages > 1 )
     <meta charset="UTF-8">
     <title>Home Page</title>
     <link rel="stylesheet" type="text/css" href="styles/homePageStyle.css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     </head>
   <body>
         <h1><img src="images/scoot.png" id="logo">
+        <br>
          
         <div id="home">
           <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
@@ -95,12 +97,12 @@ if (  $wp_query->max_num_pages > 1 )
           <?php
             for($i=0; $i < count($records); $i++){
               if(isset($records[$i]['text'])){
-                echo "<div align='center''border:.5px' class='new_post'><a href='viewProfile.php#" . $records[$i]['username'] .  "' style='cursor: 'pointer;'>@" . $records[$i]['username'] . "</a>:     " . $records[$i]["text"] . "</div>";
+                echo "<div class='new_post'><a href='viewProfile.php#" . $records[$i]['username'] .  "' style='cursor: 'pointer;'>@" . $records[$i]['username'] . "</a>:     " . $records[$i]["text"] . "</div>";
               }
               else{
                 //echo "<div align='center' class='new_post'>";
                 //echo "@" . $records[$i]['username']  . "<br>" . "<img src='downloadFile.php?imageID=". $records[$i]['imageID']  . "' width='287' height='287'>"  ."<br>" . $records[$i]['description'] . "</div>";
-                echo "<div align='center'text-align:'left' class='new_post'><a href='viewProfile.php#" . $records[$i]['username'] .  "' style='cursor: 'pointer;'>@" . $records[$i]['username'] . "</a><br><img src='downloadFile.php?imageID=". $records[$i]['imageID']  . "' width='287' height='287'>"  ."<br>" . $records[$i]['description'] . "</div>";
+                echo "<div  class='new_post'><a href='viewProfile.php#" . $records[$i]['username'] .  "' style='cursor: 'pointer;'>@" . $records[$i]['username'] . "</a><br><img style='display: block; margin-left: auto; margin-right: auto;' src='downloadFile.php?imageID=". $records[$i]['imageID']  . "' width='287' height='287'>"  ."<br>Caption: " . $records[$i]['description'] . "</div>";
               }
               echo "<br>";
               
