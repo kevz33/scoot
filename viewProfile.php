@@ -65,6 +65,21 @@
       }
       
   }
+  
+  function getLimeData(){
+    global $dbConn;
+    $sql = "SELECT lime.referralCode, lime.rides 
+            FROM `lime`
+            LEFT JOIN `users` on lime.userID = users.user_id
+            WHERE users.username = :username";
+    $stmt = $dbConn->prepare($sql);
+    $stmt->execute(array(":username"=> $_COOKIE['theirUsername']));
+    $records = $stmt->fetchAll();
+    if(count($records) == 1){
+      echo "<div id= 'bio'>Referral Code: " . $records[0]["referralCode"] . "     I've been on " . $records[0]['rides'] . "</div>";
+    }
+    
+  }
       
 ?>
 
@@ -89,6 +104,8 @@
         
         <?php
           getProfilePicture();
+          echo "<br>";
+          getLimeData();
         ?>
         
         <h2><?php echo "@{$_COOKIE['theirUsername']}"; ?></h2>

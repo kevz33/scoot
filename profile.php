@@ -46,6 +46,18 @@
             }  
       }
       
+  function getLimeData(){
+    global $dbConn;
+    $sql = "SELECT * FROM lime WHERE userID = :user_id";
+    $stmt = $dbConn->prepare($sql);
+    $stmt->execute(array(":user_id"=> $_SESSION['user_id']));
+    $records = $stmt->fetchAll();
+    if(count($records) == 1){
+      echo "<div id= 'bio'><h2>Referral Code: " . $records[0]["referralCode"] . "     I've been on " . $records[0]['rides'] . "rides</h2></div>";
+    }
+    
+  }
+      
 ?>
 
 <!DOCTYPE html>
@@ -69,6 +81,8 @@
         
         <?php
           getProfilePicture();
+          echo "<br>";
+          getLimeData();
         ?>
         
         <h2><?php echo "@{$_SESSION['username']}" ?></h2>
