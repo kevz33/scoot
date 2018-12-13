@@ -11,20 +11,20 @@
       $sql = "SELECT * FROM pictures WHERE userID = :userID";
       $stmt = $dbConn->prepare($sql);
       $stmt->execute(array(":userID"=> $_SESSION['user_id']));
-    //   $stmt->bindColumn('fileData', $data, PDO::PARAM_LOB);
-    // $statement->execute(); 
-//   $photoRecords = $statement->fetchAll();
       $records = $stmt->fetchAll();
-        
-         for($i=0; $i < count($records); $i++) 
-      {
-          echo "<div class='postedImages'>"  .  "<img src='downloadFile.php?imageID=" . $records[$i]["imageID"] . "' id='images'></div>";
+      
+      $j = 0;
+      echo "<div class='postedImages'>";
+          
+      for($i=0; $i < count($records); $i++) {
+            echo "<img src='downloadFile.php?imageID=" . $records[$i]["imageID"] . "' id='images'>";
+            $j++; 
+            
+          if($j % 3 == 0) {
+              echo "<br>";
+          }
       }
-    //   if (!empty($records)){
-    //         header('Content-Type:' . $record['fileType']);   //specifies the mime type
-    //         header('Content-Disposition: inline;');
-    //         echo $data; 
-    //     } 
+      echo "</div>";
         
   }
   
@@ -34,12 +34,17 @@
       $sql = "SELECT * FROM profile_pictures WHERE userID = :userID";
       $stmt = $dbConn->prepare($sql);
       $stmt->execute(array(":userID"=> $_SESSION['user_id']));
-    //   $stmt->bindColumn('fileData', $data, PDO::PARAM_LOB);
-    // $statement->execute(); 
-//   $photoRecords = $statement->fetchAll();
       $records = $stmt->fetchAll();
-      echo "<img src='downloadProfilePicture.php?imageID=" . $records[0]["imageID"] . "' class='profilePic' alt='Avatar' style='border-radius: 50%; width:10%'>";
-  }
+      
+    //   echo "<br> records: <br>";
+    //   print_r($records);
+      
+      if(count($records) == 0) {
+            echo "<img src='images/avatar.png' class='profilePic' alt='Avatar' style='border-radius: 50%; width:10%'>";
+      } else {
+            echo "<img src='downloadProfilePicture.php?imageID=" . $records[0]["imageID"] . "' class='profilePic' style='border-radius: 50%; width:10%'>";
+            }  
+      }
       
 ?>
 
@@ -54,30 +59,28 @@
     <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
   </head>
   <body>
-        <h1><img src="images/scoot.png" id="logo" onclick="window.location.href='home.php'">
+        <h1><img src="images/scoot.png" id="logo" onclick="window.location.href='home.php'" style="cursor:pointer">
+        
+        <div id="nav_div">
+            <nav>
+              <a style="margin-right:200px"href="home.php"> Home </a>
+            
+              <a href="logout.php"> Logout </a>
+           </nav>
+       </div>
         
         <?php
           getProfilePicture();
         ?>
         <h2><?php echo "@{$_SESSION['username']}" ?></h2>
         
-        <!--<div class="bio">-->
-        <!--  <p>Lifelong writer. Gamer. Bacon lover. Devoted coffeeaholic. Professional alcohol practitioner. Food buff.</p>-->
-        <!--</div>-->
-        
           <div align="center" class="postedImages">
               
               <?php
-              getImages();
-      ?>
+                getImages();
+              ?>
             
-            <img src="images/lime1.jpg" id="images">
-            <img src="images/lime2.jpg" id="images">
-            <img src="images/lime3.jpg" id="images">
-            <br>
-            <img src="images/lime4.jpg" id="images">
-            <img src="images/lime5.jpg" id="images">
-            <img src="images/lime6.jpg" id="images">
+        
         </div>
        
   </body>
