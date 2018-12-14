@@ -7,9 +7,11 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Scoot</title>
+        <title>Create Account | Scoot</title>
         <link rel="stylesheet" type="text/css" href="styles/style.css">
+        <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
           <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+          <link rel="icon" type="image/png" sizes="96x96" href="icon/favicon-96x96.png">
     </head>
     <body>
         <header>
@@ -29,7 +31,7 @@
                 <span id="passConfirm"></span>
                 <button type="button" name="create" value="Sign Up" id="signUpButton">Submit</button>
             </form> 
-            
+            <br>
              <a href="index.php">Login</a>
         </div>
        
@@ -58,7 +60,7 @@
                         console.log("Was user found?", data.found);
                         if (!data.found) {
                             $("#error-message").html("Username not found"); 
-                            document.getElementById("#error-message").innerHTML = "Username Availible!";
+                            document.getElementById("#error-message").innerHTML = "Username Available!";
                         } else {
                             $("#error-message").html("Username found"); 
                             document.getElementById("#error-message").innerHTML = "Username Taken!";

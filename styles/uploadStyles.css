@@ -5,19 +5,23 @@
     margin-left: auto;
     margin-right: auto;
 }
+body{
+    font-family: 'nunito', sans-serif;
+}
 
 h1{
-font-family: 'Varela Round', sans-serif;
+   font-family: 'nunito', sans-serif;
    margin: -5px;
    font-size: .8em;
 }
 
 nav{
-    
+     font-family: 'Nunito', sans-serif;
     margin-left:-9px;
     margin-top: -70px;
 }
 #home{
+     font-family: 'Nunito', sans-serif;
     border: none;
     display: block;
     margin-left: auto;
@@ -30,7 +34,7 @@ nav{
 
 
 a:link{
-    font-family: 'Varela Round', sans-serif;
+    font-family: 'Nunito', sans-serif;
     color: grey;
     text-decoration: none;
     font-size: 14;
@@ -74,24 +78,6 @@ a:hover{
     background: #1ed301;
     color: white;
 }
-.misha_loadmore{
-	background-color: #ddd;
-	border-radius: 2px;
-	display: block;
-	text-align: center;
-	font-size: 14px;
-	font-size: 0.875rem;
-	font-weight: 800;
-	letter-spacing:1px;
-	cursor:pointer;
-	text-transform: uppercase;
-	padding: 10px 0;
-	transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, color 0.3s ease-in-out;  
-}
-.misha_loadmore:hover{
-	background-color: #767676;
-	color: #fff;
-}
 
 #wrapper {
     overflow: hidden; /* add this to contain floated children */
@@ -109,6 +95,28 @@ a:hover{
 }
 
 h2{
+       font-family: 'nunito', sans-serif;
        text-align: center;
+       color: #1ed301;
+       outline: 1px solid #1ed301;
+       
 }
-
+h3{
+    color:grey;
+}
+input[type=submit]:active{
+    background-color: #1ed301;
+    color:white;
+    
+}
+input[type=submit]{
+     background-color: #1ed301;
+  color: white;
+  border: 3px solid white;
+  border-radius: 12px;
+  
+}
+input[type=submit]:hover{
+     background-color:grey;
+    color:#1ed301;
+}

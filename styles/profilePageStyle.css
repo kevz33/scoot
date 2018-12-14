@@ -6,7 +6,15 @@
     margin-right: auto;
     cursor: pointer;
 }
-
+body{
+    font-family: 'Nunito', 22px;
+  
+}
+select{
+  border: 3px solid white;
+  
+  border-radius: 12px;
+}
 .profilePic {
     margin-left: auto;
     margin-right:auto;
@@ -17,6 +25,8 @@
 }
 
 h2 {
+    font-family: 'Nunito', sans-serif;
+    color:#1ed301;
     margin-left: auto;
     margin-right: auto;
     margin-top: -15px;
@@ -25,6 +35,8 @@ h2 {
     font-size: 25px;
 }
 h3 {
+    font-family: 'Nunito', sans-serif;
+    color:grey;
     margin-left: auto;
     margin-right: auto;
     margin-top: -23px;
@@ -34,27 +46,29 @@ h3 {
     
 }
 
-h4 {
+.bio {
     width:300px;
     margin: auto;
     text-align: center;
-    font-size:;
-}
-
-#bio {
-    width:300px;
-    margin: auto;
-    text-align: center;
+    font-family: 'Nunito', 22px;
+  
 }
 
 .postedImages {
     align-items: center;
+    font-family: 'Nunito', 22px;
+  
 }
 #images{
-    width: 287px;
-    height:287px;
+    width: 300px;
+    height:300px;
     position: relative;
     margin: 8px 8px;
+  box-sizing: border-box;
+  width: 400px;
+  height: 400px;
+  border: 3px solid #1ed301;
+  margin-block-start: 50px;
 }
 
 nav{
@@ -64,7 +78,7 @@ nav{
 }
 
 a:link{
-    font-family: 'Varela Round', sans-serif;
+    font-family: 'Nunito', sans-serif;
     color: grey;
     text-decoration: none;
     font-size: 14px;
@@ -80,6 +94,7 @@ a:hover{
     
 }
 #nav_div{
+   font-family: 'Nunito', sans-serif;
     border: none;
     display: block;
     margin-left: auto;
@@ -88,4 +103,14 @@ a:hover{
     text-align: center;
     text-decoration: none;
     font-size: 14;
+}
+
+
+#settingsSelect{
+  background-color: #1ed301;
+  color:white;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  
 }

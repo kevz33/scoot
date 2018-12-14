@@ -1,3 +1,4 @@
+
 #logo{
     width: 10%;
     height: auto;
@@ -5,33 +6,55 @@
     margin-left: auto;
     margin-right: auto;
 }
-
+#nav{
+    display: block;
+  margin-left: 550px;
+  margin-right: auto;
+}
+body{
+    font-family: 'Nunito', sans-serif;
+    
+}
 h1{
     font-family: 'Varela Round', sans-serif;
     color: #1ed301;
     text-align: center;
 }
 
-/*input, label{
-    display: block;
-}*/
 
-/*#usernameWrap{
-    float: left;
-    margin-right: 20px;
+button[type=button]:active{
+    background-color: #1ed301;
+    color:white;
+    
 }
-
-#passwordWrap{
-    float: left;
-}*/
-
+button[type=button]{
+    background-color: #1ed301;
+  color: white;
+  border: 3px solid white;
+  
+  border-radius: 12px;
+}
+button:hover{
+    background-color:grey;
+    color:#1ed301;
+}
 input[type=submit]{
     width: 210px;
     background-color: #1ed301;
     border: none;
     padding: 8px;
+    color: white;
+    border: 3px solid white;
+    border-radius: 12px;
 }
-
+input[type=submit]:hover{
+    background-color: grey;
+    color:#1ed301;
+}
+input[type=submit]:active{
+    background-color:#1ed301;
+    color:#1ed301;
+}
 .center{
     padding: 20px;
     text-align: center;
@@ -49,7 +72,7 @@ input{
 }
 
 h3{
-    font-family: Alcefun;
+    font-family: 'nunito';
     font-size: 18px;
     color: grey;
     
@@ -60,23 +83,23 @@ header{
 }
 
 a:link{
-    font-family: 'Varela Round', sans-serif;
+    font-family: 'Nunito', sans-serif;
     color: grey;
     
 }
-
+a:visited {
+    color:grey ;
+    
+}
 a:hover{
     color: #1ed301;
 }
-<<<<<<< HEAD
 
-.profilePic {
-    margin-left: 10%;
-=======
+
 .error{
     color:red;
     text-align:center;
->>>>>>> 19deb94315f6b5c8c5cda4806b7d78ef751e05b5
+
 }
 .form-submit-button {
 
@@ -109,4 +132,5 @@ box-shadow: 5px 5px 5px #eee;
 text-shadow:none;
 
 }
+
 

@@ -34,7 +34,7 @@
       echo "<div class='postedImages'>";
           
       for($i=0; $i < count($records); $i++) {
-            echo "<img src='downloadFile.php?imageID=" . $records[$i]["imageID"] . "' id='images'>";
+            echo "<img  src='downloadFile.php?imageID=" . $records[$i]["imageID"] . "' id='images'>";
             $j++; 
             
           if($j % 3 == 0) {
@@ -76,7 +76,7 @@
     $stmt->execute(array(":username"=> $_COOKIE['theirUsername']));
     $records = $stmt->fetchAll();
     if(count($records) == 1){
-      echo "<div id= 'bio'><p>Referral Code: " . $records[0]["referralCode"] . "     I've been on " . $records[0]['rides'] . "<p></div>";
+      echo "<br><div id= 'bio'><h3>Referral Code: <br>" . $records[0]["referralCode"] . "<br> History:<br> I've been on " . $records[0]['rides'] . " rides</h3></div>";
     }
     
   }
@@ -89,6 +89,7 @@
     <meta charset="UTF-8">
     <title><?php echo "@" . $_COOKIE['theirUsername']; ?> | Scoot</title>
     <link rel="stylesheet" type="text/css" href="styles/profilePageStyle.css">
+     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <link rel="icon" type="image/png" sizes="96x96" href="icon/favicon-96x96.png">
   </head>
   
