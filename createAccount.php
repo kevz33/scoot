@@ -9,6 +9,7 @@
     <head>
         <title>Scoot</title>
         <link rel="stylesheet" type="text/css" href="styles/style.css">
+        <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
           <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     </head>
     <body>

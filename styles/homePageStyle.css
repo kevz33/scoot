@@ -7,14 +7,17 @@
 }
 body{
     font-family: 'Nunito', 22px;
+    padding-left:auto;
+    padding-right:auto;
 }
 h1{
+    font-family: 'Nunito', sans-serif;
    margin: -5px;
    font-size: .8em;
 }
 
 nav{
-    
+    font-family: 'Nunito', sans-serif;
     margin-left:-9px;
     margin-top: -70px;
 }
@@ -31,7 +34,7 @@ nav{
 
 
 a:link{
-    font-family: 'Varela Round', sans-serif;
+    font-family: 'Nunito', sans-serif;
     color: grey;
     text-decoration: none;
     font-size: 14;
@@ -123,10 +126,45 @@ input{
 	background-color: #767676;
 	color: #fff;
 }
-<<<<<<< HEAD
+
 
 .new_post{
+    display:block;
+    margin-top: auto;
+    margin-bottom:auto;
+    margin-left:auto;
+    margin-right:auto;
     font-family: 'Nunito', sans-serif;
+    padding-top:15px;
+  box-sizing: border-box;
+  width: 400px;
+  height: 400px;
+  border: 3px solid #1ed301;
+  margin-block-start: 50px;
+ 
+    
 }
-=======
->>>>>>> 84a46f3bbb511518730a49630cf9876d5a423fa5
+
+.new_text{
+    display:block;
+    margin-top: auto;
+    margin-bottom:auto;
+    margin-left:auto;
+    margin-right:auto;
+    font-family: 'Nunito', sans-serif;
+    padding-top: 25px;
+  box-sizing: border-box;
+  width: 400px;
+  height: 100px;
+  border: 3px solid #1ed301;
+  margin-block-start: 50px;
+ 
+    
+}
+select{
+    font-family: 'Nunito', sans-serif;
+    background-color:white;
+    color:#1ed301;
+  border: 3px solid #1ed301;
+  border-radius: 12px;
+}

@@ -6,7 +6,15 @@
     margin-right: auto;
     cursor: pointer;
 }
-
+body{
+    font-family: 'Nunito', 22px;
+  
+}
+select{
+  border: 3px solid white;
+  
+  border-radius: 12px;
+}
 .profilePic {
     margin-left: auto;
     margin-right:auto;
@@ -17,6 +25,8 @@
 }
 
 h2 {
+    font-family: 'Nunito', sans-serif;
+    color:#1ed301;
     margin-left: auto;
     margin-right: auto;
     margin-top: -15px;
@@ -25,6 +35,8 @@ h2 {
     font-size: 25px;
 }
 h3 {
+    font-family: 'Nunito', sans-serif;
+    color:grey;
     margin-left: auto;
     margin-right: auto;
     margin-top: -23px;
@@ -38,16 +50,25 @@ h3 {
     width:300px;
     margin: auto;
     text-align: center;
+    font-family: 'Nunito', 22px;
+  
 }
 
 .postedImages {
     align-items: center;
+    font-family: 'Nunito', 22px;
+  
 }
 #images{
-    width: 287px;
-    height:287px;
+    width: 300px;
+    height:300px;
     position: relative;
     margin: 8px 8px;
+  box-sizing: border-box;
+  width: 400px;
+  height: 400px;
+  border: 3px solid #1ed301;
+  margin-block-start: 50px;
 }
 
 nav{
@@ -57,7 +78,7 @@ nav{
 }
 
 a:link{
-    font-family: 'Varela Round', sans-serif;
+    font-family: 'Nunito', sans-serif;
     color: grey;
     text-decoration: none;
     font-size: 14px;
@@ -73,6 +94,7 @@ a:hover{
     
 }
 #nav_div{
+   font-family: 'Nunito', sans-serif;
     border: none;
     display: block;
     margin-left: auto;
@@ -86,7 +108,8 @@ a:hover{
 /* The container must be positioned relative: */
 .custom-select {
   position: relative;
-  font-family: Arial;
+  font-family: 'Nunito', sans-serif;
+  
 }
 
 .custom-select select {
@@ -94,7 +117,8 @@ a:hover{
 }
 
 .select-selected {
-  background-color: DodgerBlue;
+  background-color: #1ed301;
+  
 }
 
 /* Style the arrow inside the select element: */
@@ -118,16 +142,18 @@ a:hover{
 /* style the items (options), including the selected item: */
 .select-items div,.select-selected {
   color: #ffffff;
-  padding: 8px 16px;
+  padding: 0px;
   border: 1px solid transparent;
   border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
   cursor: pointer;
+  font-size: 14px;
+    width: 100%;
 }
 
 /* Style items (options): */
 .select-items {
   position: absolute;
-  background-color: DodgerBlue;
+  background-color: grey;
   top: 100%;
   left: 0;
   right: 0;
@@ -140,5 +166,5 @@ a:hover{
 }
 
 .select-items div:hover, .same-as-selected {
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: #1ed301;
 }

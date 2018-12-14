@@ -6,7 +6,10 @@
     margin-left: auto;
     margin-right: auto;
 }
-
+body{
+    font-family: 'Nunito', sans-serif;
+    
+}
 h1{
     font-family: 'Varela Round', sans-serif;
     color: #1ed301;
@@ -46,8 +49,18 @@ input[type=submit]{
     background-color: #1ed301;
     border: none;
     padding: 8px;
+    color: white;
+    border: 3px solid white;
+    border-radius: 12px;
 }
-
+input[type=submit]:hover{
+    background-color: grey;
+    color:#1ed301;
+}
+input[type=submit]:active{
+    background-color: #1ed301;
+    color:grey;
+}
 .center{
     padding: 20px;
     text-align: center;
@@ -65,7 +78,7 @@ input{
 }
 
 h3{
-    font-family: Alcefun;
+    font-family: 'nunito';
     font-size: 18px;
     color: grey;
     
@@ -76,7 +89,7 @@ header{
 }
 
 a:link{
-    font-family: 'Varela Round', sans-serif;
+    font-family: 'Nunito', sans-serif;
     color: grey;
     
 }

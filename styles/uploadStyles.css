@@ -6,18 +6,20 @@
     margin-right: auto;
 }
 
+
 h1{
-font-family: 'Varela Round', sans-serif;
+   font-family: 'Nunito', sans-serif;
    margin: -5px;
    font-size: .8em;
 }
 
 nav{
-    
+     
     margin-left:-9px;
     margin-top: -70px;
 }
 #home{
+     font-family: 'Nunito', sans-serif;
     border: none;
     display: block;
     margin-left: auto;
@@ -30,7 +32,7 @@ nav{
 
 
 a:link{
-    font-family: 'Varela Round', sans-serif;
+    font-family: 'Nunito', sans-serif;
     color: grey;
     text-decoration: none;
     font-size: 14;
@@ -91,8 +93,11 @@ a:hover{
 }
 
 h2{
+       font-family: 'Nunito', sans-serif;
        text-align: center;
        color: #1ed301;
+       outline: 1px solid #1ed301;
+       
 }
 h3{
     color:grey;
@@ -107,6 +112,7 @@ input[type=submit]{
   color: white;
   border: 3px solid white;
   border-radius: 12px;
+  
 }
 input[type=submit]:hover{
      background-color:grey;

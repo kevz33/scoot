@@ -89,6 +89,7 @@ if(isset($_POST['uploadText'])){
     <meta charset="UTF-8">
     <title>Home Page</title>
     <link rel="stylesheet" type="text/css" href="styles/uploadStyles.css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     </head>
   <body>
@@ -111,7 +112,7 @@ if(isset($_POST['uploadText'])){
         <div id = "wrapper">
         <div id = "imageForm">
             <h2>Post an Image</h2>
-            <form method="POST" enctype="multipart/form-data"> 
+            <form style="method="POST" enctype="multipart/form-data"> 
             
                 <input type="file" name="fileName" /> <br />
                 <br>

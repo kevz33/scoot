@@ -17,7 +17,7 @@
       echo "<div class='postedImages'>";
           
       for($i=0; $i < count($records); $i++) {
-            echo "<img src='downloadFile.php?imageID=" . $records[$i]["imageID"] . "' id='images'>";
+            echo "<img src='downloadFile.php?imageID=" . $records[$i]["imageID"] ."' width='300px'height='300px'". "' id='images'>";
             $j++; 
             
           if($j % 3 == 0) {
@@ -53,7 +53,7 @@
     $stmt->execute(array(":user_id"=> $_SESSION['user_id']));
     $records = $stmt->fetchAll();
     if(count($records) == 1){
-      echo "<br><div id= 'bio'><h3>Referral Code: " . $records[0]["referralCode"] . "     I've been on " . $records[0]['rides'] . " rides</h3></div>";
+      echo "<br><div id= 'bio'><h3>Referral Code:<br> <h3>" . $records[0]["referralCode"] . " <br>History:<br> I've been on " . $records[0]['rides'] . " rides</div>";
     }
     
   }
@@ -67,6 +67,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo "@{$_SESSION['username']}" ?> | Scoot</title>
     <link rel="stylesheet" type="text/css" href="styles/profilePageStyle.css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <link rel="icon" type="image/png" sizes="96x96" href="icon/favicon-96x96.png">
   </head>
   

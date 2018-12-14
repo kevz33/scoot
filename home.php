@@ -96,12 +96,12 @@ if (  $wp_query->max_num_pages > 1 )
           <?php
             for($i=0; $i < count($records); $i++){
               if(isset($records[$i]['text'])){
-                echo "<div class='new_post'><a href='viewProfile.php#" . $records[$i]['username'] .  "' style='cursor: 'pointer;'>@" . $records[$i]['username'] . "</a>:     " . $records[$i]["text"] . "</div>";
+                echo "<div align='center' class='new_text'><a href='viewProfile.php#" . $records[$i]['username'] .  "' style='cursor: 'pointer;'>@" . $records[$i]['username'] . "</a>:     " . $records[$i]["text"] . "</div>";
               }
               else{
                 //echo "<div align='center' class='new_post'>";
                 //echo "@" . $records[$i]['username']  . "<br>" . "<img src='downloadFile.php?imageID=". $records[$i]['imageID']  . "' width='287' height='287'>"  ."<br>" . $records[$i]['description'] . "</div>";
-                echo "<div  class='new_post'><a href='viewProfile.php#" . $records[$i]['username'] .  "' style='cursor: 'pointer;'>@" . $records[$i]['username'] . "</a><br><img style='display: block; margin-left: auto; margin-right: auto;' src='downloadFile.php?imageID=". $records[$i]['imageID']  . "' width='25%'"  ."<br>Caption: " . $records[$i]['description'] . "</div>";
+                echo "<div align='center' class='new_post'><a href='viewProfile.php#" . $records[$i]['username'] .  "' style='cursor: 'pointer;'>@" . $records[$i]['username'] . "</a><br><img style='display: block; margin-left: auto; margin-right: auto;' src='downloadFile.php?imageID=". $records[$i]['imageID']  . "' width='300px'height='300px'"  ."<br>Caption: " . $records[$i]['description'] . "</div>";
               }
               echo "<br>";
               
@@ -155,7 +155,7 @@ if (  $wp_query->max_num_pages > 1 )
                     .done(function(data) {
                       $("#posts").empty();
                       if($("#filter").val() == null){
-                        $("#posts").append("<select id='filter' style='display: block; margin: 0 auto; width:200px;  position: relative; font-family: Arial;'><option value='username'>User</option><option value='text'>Text Posts</option><option value='image'>Images</option></select><br>");
+                        $("#posts").append("<select id='filter' style='display: block; margin: 0 auto; width:200px;  position: relative; '><option value='username'>User</option><option value='text'>Text Posts</option><option value='image'>Images</option></select><br>");
                       }
                         if(data["data"] == false){
                             $("#posts").append($("#searched") + " not found");
@@ -163,7 +163,7 @@ if (  $wp_query->max_num_pages > 1 )
                         else{
                             for(var i = 0; i < data["data"].length; i++){
                               if(data["data"][i]['text'] != null){
-                                $("#posts").append("<div align='center''border:.5px' class='new_post'><a href='viewProfile.php#" + data["data"][i]['username'] +  "' style='cursor: 'pointer;'>@" + data["data"][i]['username'] + "</a>:     " + data["data"][i]["text"] + "</div>");
+                                $("#posts").append("<div align='center''border:.5px' class='new_text'><a href='viewProfile.php#" + data["data"][i]['username'] +  "' style='cursor: 'pointer;'>@" + data["data"][i]['username'] + "</a>:     " + data["data"][i]["text"] + "</div>");
                               }
                               else{
                                 $("#posts").append("<div align='center'text-align:'left' class='new_post'><a href='viewProfile.php#" + data["data"][i]['username'] +  "' style='cursor: 'pointer;'>@" + data["data"][i]['username'] + "</a><br><img src='downloadFile.php?imageID=" + data["data"][i]['imageID']  + "' width='287' height='287'>"  + "<br>" + data["data"][i]['description'] + "</div>");
