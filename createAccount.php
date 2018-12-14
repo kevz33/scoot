@@ -59,7 +59,7 @@
                         console.log("Was user found?", data.found);
                         if (!data.found) {
                             $("#error-message").html("Username not found"); 
-                            document.getElementById("#error-message").innerHTML = "Username Availible!";
+                            document.getElementById("#error-message").innerHTML = "Username Available!";
                         } else {
                             $("#error-message").html("Username found"); 
                             document.getElementById("#error-message").innerHTML = "Username Taken!";

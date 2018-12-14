@@ -14,34 +14,31 @@ if(isset($_POST['guestBtn'])){
     <head>
         <title>Scoot</title>
         <link rel="stylesheet" type="text/css" href="styles/style.css">
-        <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     </head>
     <body>
         <header>
             <div class="top">
-                <img src="images/scoot.png" id="logo">
+                <img src="images/scoot.png" id="logo" onclick="window.location.href='home.php'" style="cursor:pointer">
             </div>
             
         </header>
         
+        <a style='margin-right:200px'href='profile.php'> My Profile </a>
+        
+        <a href='logout.php'> Logout </a>
+        
         <div class="center">
-            <h3>Let's Scoot!</h3>
+            <h3>Change Password</h3>
             <form method="POST" class="login">
-                <input type="text" name="username" id ="username" placeholder="Username"></input>
-                <input type="password" name="password" id="password" placeholder="Password"></input>
-                <button type="button" id="submitBtn" value="Login">Submit</button>
+                <input type="password" name="password" id ="password" placeholder="Password"></input>
+                <input type="password" name="newPassword" id="newPassword" placeholder="New Password"></input>
+                <button type="button" id="submitBtn" value="change">Change</button>
             </form> 
-            <br>
-            <div class = "error">
+        </div>
+        
+        <div class="error">
             
-            </div>
-            
-            <a href="createAccount.php">Create New Account</a>
-            <br>
-            <form method="POST" class = "login">
-                <input type="submit" name="guestBtn" value="Continue as Guest">
-            </form>
         </div>
        
 
@@ -53,13 +50,13 @@ if(isset($_POST['guestBtn'])){
     
     function onButtonClicked() {
             var jsonData = {
-                "username": $("#username").val(),
-                "password" : $("#password").val()
+                "password" : $("#password").val(),
+                "newPassword": $("#newPassword").val()
             };
 
             $.ajax({
                     // The URL for the request
-                    url: "loginFunctions.php",
+                    url: "settingsFunctions.php",
 
                     // Whether this is a POST or GET request
                     type: "POST",
@@ -73,18 +70,19 @@ if(isset($_POST['guestBtn'])){
                     
             })
                     .done(function(data) {
-                        if(data["data"] == false){
+                        if(data["data"] == "true"){
                             $(".error").empty();
-                           $(".error").html("Invalid Credentials<br>");
+                            $(".center").empty();
+                            $(".center").html("<h2>Password Changed</h2>");
                         }
                         else{
-                            window.location.replace("functions.html");
+                            $(".error").empty();
+                            $(".error").append("<h2>" + data["data"] + "</h2>");
                         }
                         
                     })
                     
-                    .always(function(xhr, status) {
-                        
+                    .always(function(data, status) {
                     });
 
             

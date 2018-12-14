@@ -105,6 +105,7 @@ a:hover{
     font-size: 14;
 }
 
+
 /* The container must be positioned relative: */
 .custom-select {
   position: relative;
@@ -168,3 +169,4 @@ a:hover{
 .select-items div:hover, .same-as-selected {
   background-color: #1ed301;
 }
+
