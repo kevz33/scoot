@@ -34,7 +34,14 @@ h3 {
     
 }
 
-.bio {
+h4 {
+    width:300px;
+    margin: auto;
+    text-align: center;
+    font-size:;
+}
+
+#bio {
     width:300px;
     margin: auto;
     text-align: center;

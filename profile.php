@@ -53,7 +53,7 @@
     $stmt->execute(array(":user_id"=> $_SESSION['user_id']));
     $records = $stmt->fetchAll();
     if(count($records) == 1){
-      echo "<div id= 'bio'><h2>Referral Code: " . $records[0]["referralCode"] . "     I've been on " . $records[0]['rides'] . " rides</h2></div>";
+      echo "<div id= 'bio'><p>Referral Code: " . $records[0]["referralCode"] . "     I've been on " . $records[0]['rides'] . " rides</p></div>";
     }
     
   }

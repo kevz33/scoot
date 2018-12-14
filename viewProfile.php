@@ -76,7 +76,7 @@
     $stmt->execute(array(":username"=> $_COOKIE['theirUsername']));
     $records = $stmt->fetchAll();
     if(count($records) == 1){
-      echo "<div id= 'bio'>Referral Code: " . $records[0]["referralCode"] . "     I've been on " . $records[0]['rides'] . "</div>";
+      echo "<div id= 'bio'><p>Referral Code: " . $records[0]["referralCode"] . "     I've been on " . $records[0]['rides'] . "<p></div>";
     }
     
   }
