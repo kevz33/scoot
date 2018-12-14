@@ -7,10 +7,11 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Scoot</title>
+        <title>Create Account | Scoot</title>
         <link rel="stylesheet" type="text/css" href="styles/style.css">
         <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
           <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+          <link rel="icon" type="image/png" sizes="96x96" href="icon/favicon-96x96.png">
     </head>
     <body>
         <header>

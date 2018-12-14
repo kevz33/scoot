@@ -46,10 +46,11 @@ if (  $wp_query->max_num_pages > 1 )
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Scoot</title>
+    <title>Home | Scoot</title>
     <link rel="stylesheet" type="text/css" href="styles/homePageStyle.css">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="icon" type="image/png" sizes="96x96" href="icon/favicon-96x96.png">
     </head>
   <body>
         <h1><img src="images/scoot.png" id="logo">
