@@ -19,28 +19,26 @@ if(isset($_POST['guestBtn'])){
     <body>
         <header>
             <div class="top">
-                <img src="images/scoot.png" id="logo">
+                <img src="images/scoot.png" id="logo" onclick="window.location.href='home.php'" style="cursor:pointer">
             </div>
             
         </header>
         
+        <a style='margin-right:200px'href='profile.php'> My Profile </a>
+        
+        <a href='logout.php'> Logout </a>
+        
         <div class="center">
-            <h3>Let's Scoot!</h3>
+            <h3>Are you sure you want to delete your account?</h3>
             <form method="POST" class="login">
-                <input type="text" name="username" id ="username" placeholder="Username"></input>
-                <input type="password" name="password" id="password" placeholder="Password"></input>
-                <button type="button" id="submitBtn" value="Login">Submit</button>
+                <input type="radio" name="answer" value="yes"> Yes
+                <input type="radio" name="answer" value="no"> No<br>
+                <button type="button" id="submitBtn" value="submit">Submit</button>
             </form> 
-            <br>
-            <div class = "error">
+        </div>
+        
+        <div class="error">
             
-            </div>
-            
-            <a href="createAccount.php">Create New Account</a>
-            <br>
-            <form method="POST" class = "login">
-                <input type="submit" name="guestBtn" value="Continue as Guest">
-            </form>
         </div>
        
 
@@ -51,14 +49,14 @@ if(isset($_POST['guestBtn'])){
     $("#submitBtn").click(onButtonClicked);
     
     function onButtonClicked() {
+            if($('input[name=answer]:checked').val() == "yes"){
             var jsonData = {
-                "username": $("#username").val(),
-                "password" : $("#password").val()
+                "answer" : "yes"
             };
 
             $.ajax({
                     // The URL for the request
-                    url: "loginFunctions.php",
+                    url: "settingsFunctions.php",
 
                     // Whether this is a POST or GET request
                     type: "POST",
@@ -72,20 +70,21 @@ if(isset($_POST['guestBtn'])){
                     
             })
                     .done(function(data) {
-                        if(data["data"] == false){
-                            $(".error").empty();
-                           $(".error").html("Invalid Credentials<br>");
+                        if(data["data"] == "true"){
+                            window.location.replace("index.php");
                         }
                         else{
-                            window.location.replace("functions.html");
+                            $(".error").empty();
+                            $(".error").append("<h2>Error</h2>");
                         }
                         
                     })
                     
-                    .always(function(xhr, status) {
-                        
+                    .always(function(data, status) {
+                        console.log(data);
                     });
 
             
-        }
+         }
+    }
 </script>
