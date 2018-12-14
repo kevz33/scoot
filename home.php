@@ -46,7 +46,7 @@ if (  $wp_query->max_num_pages > 1 )
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Home Page</title>
+    <title>Scoot</title>
     <link rel="stylesheet" type="text/css" href="styles/homePageStyle.css">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

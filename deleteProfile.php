@@ -14,6 +14,7 @@ if(isset($_POST['guestBtn'])){
     <head>
         <title>Scoot</title>
         <link rel="stylesheet" type="text/css" href="styles/style.css">
+        <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     </head>
     <body>
@@ -23,16 +24,18 @@ if(isset($_POST['guestBtn'])){
             </div>
             
         </header>
-        
+        <nav id="nav">
         <a style='margin-right:200px'href='profile.php'> My Profile </a>
-        
         <a href='logout.php'> Logout </a>
-        
+        </nav>
         <div class="center">
             <h3>Are you sure you want to delete your account?</h3>
+            <br>
+        
             <form method="POST" class="login">
                 <input type="radio" name="answer" value="yes"> Yes
                 <input type="radio" name="answer" value="no"> No<br>
+                <br><br>
                 <button type="button" id="submitBtn" value="submit">Submit</button>
             </form> 
         </div>

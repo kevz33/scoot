@@ -6,6 +6,11 @@
     margin-left: auto;
     margin-right: auto;
 }
+#nav{
+    display: block;
+  margin-left: 550px;
+  margin-right: auto;
+}
 body{
     font-family: 'Nunito', sans-serif;
     
@@ -16,18 +21,7 @@ h1{
     text-align: center;
 }
 
-/*input, label{
-    display: block;
-}*/
 
-/*#usernameWrap{
-    float: left;
-    margin-right: 20px;
-}
-
-#passwordWrap{
-    float: left;
-}*/
 button[type=button]:active{
     background-color: #1ed301;
     color:white;
@@ -58,8 +52,8 @@ input[type=submit]:hover{
     color:#1ed301;
 }
 input[type=submit]:active{
-    background-color: #1ed301;
-    color:grey;
+    background-color:#1ed301;
+    color:#1ed301;
 }
 .center{
     padding: 20px;
